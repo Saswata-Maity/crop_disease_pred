@@ -17,7 +17,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 model = load_model('crop_tuned_model.keras')
 
-train_path = r'extracted_crop_data/New Plant Diseases Dataset(Augmented)/New Plant Diseases Dataset(Augmented)/train' 
+train_path = r'plant/train' 
 class_labels = sorted(os.listdir(train_path))
 
 accuracy_rate = 99.01
