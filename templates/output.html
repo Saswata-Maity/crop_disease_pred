@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease Classifier - Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+        }
+        #result p {
+            margin-bottom: 10px;
+        }
+        .confidence {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .back-link {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .back-link:hover {
+            background-color: #2980b9;
+        }
+        .plot-container {
+            text-align: center;
+        }
+        .plot-image {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Plant Disease Classification Result</h1>
+        <div id="result">
+            <h2>Classification Result</h2>
+            <p>Disease: <strong>{{ prediction.label }}</strong></p>
+            <p>Confidence: <span class="confidence">{{ "%.2f"|format(prediction.confidence * 100) }}%</span></p>
+            <p>Model Accuracy: {{ "%.2f"|format(prediction.accuracy_rate) }}%</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Disease Probability Distribution</h2>
+        <div class="plot-container">
+            <img src="{{ url_for('static', filename='plots/' + plot_file) }}" alt="Disease Probability Distribution" class="plot-image">
+        </div>
+    </div>
+
+    <a href="/" class="back-link">Classify Another Image</a>
+</body>
+</html>
