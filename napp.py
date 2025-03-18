@@ -15,7 +15,7 @@ if not os.path.exists(UPLOAD_FOLDER):
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-model = load_model('crop_tuned_model.keras')
+model = load_model('crop_best_model.pth')
 
 train_path = r'plant/train' 
 class_labels = sorted(os.listdir(train_path))
